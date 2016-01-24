@@ -18,7 +18,7 @@ window.knights = {
 
 // Load Phaser on window load
 window.onload = function (){
-	knights.game = new Phaser.Game(knights.STAGE.WIDTH
+	knights.game = new Phaser.Game(knights.STAGE.WIDTH,
 		knights.STAGE.HEIGHT, Phaser.AUTO, knights.STAGE_ID
 		);
 	knights.game.state.add(knights.STATES.BOOT, knights.Boot);
