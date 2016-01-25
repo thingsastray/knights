@@ -16,7 +16,7 @@
     }
   };
 
-  kickface.GameInput = function(state) {
+  knights.GameInput = function(state) {
 
     this.state = state;
 

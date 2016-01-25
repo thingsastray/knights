@@ -34,14 +34,14 @@
 
   // sprite class constructor
   // @id is 0 index based
-  kickface.Player = function (game, id, name) {
+  knights.Player = function (game, id, name) {
     this.game = game;
     this.id = id;
     this.name = name? name : 'Player ' + (id+1);
     this.facing; // direction that player is facing, state updates this
 
     // super constructor call
-    Phaser.Sprite.call(this, game, 0, 0, kickface.ASSETS.SPRITESHEET.PLAYER.name);
+    Phaser.Sprite.call(this, game, 0, 0, knights.ASSETS.SPRITESHEET.PLAYER.name);
 
     // enable physics (adds this.body)
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
@@ -61,20 +61,20 @@
   };
 
   // extend Sprite prototype
-  kickface.Player.prototype = Object.create(Phaser.Sprite.prototype, {
+  knights.Player.prototype = Object.create(Phaser.Sprite.prototype, {
     constructor: {
-      value: kickface.Player
+      value: knights.Player
     }
   });
 
   // public static variable
-  kickface.Player.FACING = {
+  knights.Player.FACING = {
     LEFT : 'LEFT',
     RIGHT : 'RIGHT'
   };
 
   // is invoked on every frame
-  kickface.Player.prototype.update = function () {
+  knights.Player.prototype.update = function () {
 
      // ignore acceleration(gravity) while diving
     if( this.is_diving ){
@@ -89,25 +89,25 @@
 
   // Input actions
 
-  kickface.Player.prototype.step_left = function ( ) {
+  knights.Player.prototype.step_left = function ( ) {
   	if(!this.alive) return;
     this.body.velocity.x = -WALK_SPEED;
   };
 
-  kickface.Player.prototype.step_right = function ( ) {
+  knights.Player.prototype.step_right = function ( ) {
   	if(!this.alive) return;
     this.body.velocity.x = WALK_SPEED;
   };
 
   // stop stepping left or right
   // on key up
-  kickface.Player.prototype.stop = function ( ) {
+  knights.Player.prototype.stop = function ( ) {
     this.body.velocity.x = 0;
   };
 
    // Custom methods
 
-  kickface.Player.prototype.defeat = function(){
+  knights.Player.prototype.defeat = function(){
 
     // stop all input
     this.alive = false;
